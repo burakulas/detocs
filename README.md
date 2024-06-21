@@ -1,10 +1,8 @@
-## DetOcs
+# DetOcS #
 
-<span style="color: red">this is red</span>
 
-- text in red
   
-[!D]etection of [!O]s[!c]illationS in Eclipsing Binary Light Curves
+## **${\color{red}Det\color{black}ection \space of \space \color{red}O\color{black}s\color{red}c\color{black}illation \space in \space Eclipsing \space Binary \space Light \space Curve\color{red}S}$** ##
 
-<p>Hi here is some text <span>this is red</span>.</p>
+
 
