@@ -39,6 +39,6 @@ ${\space\space\space}$   b. Continue to step 7.
 **7**. Enter the confidence level, the probability of the presence of the object of interest in detections (*see p.788 in [Redmon et al. 2016](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)*)
 
 
-**8**. Select a detection model (*SSD is faster. You may want to run the script on a GPU when using EfficientDet D1*)
+**8**. Select a detection model (*SSD is faster. For using the EfficientDet model, extract Eff_detect.zip to the main folder. You may want to run the script on a GPU when using EfficientDet D1*)
   
 **9**. Click "Search" to start the process.
