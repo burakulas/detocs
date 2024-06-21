@@ -20,18 +20,18 @@ A web implementation using the iterative object detection refinement method for 
 
 **5**. Open a web browser and enter the above address into the address bar
 
-**6**. For a single target:
+**6**. - For a single target:
 
-${\space\space\space}$ a. Input enter the name of the TESS target (*e.g. TIC48084398*).
+${\space\space\space}$ *a*. Input enter the name of the TESS target (*e.g. TIC48084398*).
 
-${\space\space\space}$   b. Enter an orbital period or retrieve it from the [TESS EBS](https://tessebs.villanova.edu) by checking the box.
+${\space\space\space}$   *b*. Enter an orbital period or retrieve it from the [TESS EBS](https://tessebs.villanova.edu) by checking the box.
 
-${\space\space\space}$   c. Enter a period factor value (*hoover over the question mark for explanation*).
+${\space\space\space}$   *c*. Enter a period factor value (*hoover over the question mark for explanation*).
 
    
-${\space\space\space}$ For multiple targets:
+${\space\space\space}$ - For multiple targets:
 
-${\space\space\space}$   a. Click the "Browse" button and choose a file (*see sample_list.csv*).
+${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see sample_list.csv*).
 
 
 
