@@ -1,3 +1,8 @@
+"""
+Author: Burak Ulas -  github.com/burakulas
+2024, Konkoly Observatory
+"""
+
 import pandas as pd
 import numpy as np
 import os
