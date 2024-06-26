@@ -42,3 +42,8 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 **8**. Select a detection model (*SSD is faster. For using the EfficientDet model, extract Eff_detect.zip to the main folder. You may want to run the script on a GPU when using EfficientDet D1*).
   
 **9**. Click the "Submit" button to start the process.
+
+
+### Detection on Kepler EBS ###
+
+*detocs_k.py* written for detection patterns on [Kepler EBS](https://archive.stsci.edu/kepler/eclipsing_binaries.html) dataset. *kepler_ebs_sample.csv* file is a sample that the code can process. It creates a folder with the timestamp in name and move the images with annotations there. A summary file is also creted in order to check the confidences. 
