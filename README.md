@@ -43,7 +43,7 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
   
 **9**. Click the "Submit" button to start the process.
 
-
+## ##
 ### Detection on Kepler EBS ###
 
-*detocs_k.py* written for detection patterns on [Kepler EBS](https://archive.stsci.edu/kepler/eclipsing_binaries.html) dataset. *kepler_ebs_sample.csv* file is a sample that the code can process. It creates a folder with the timestamp in name and move the images with annotations there. A summary file is also creted in order to check the confidences. 
+*detocs_k.py* was written to test the known systems with Kepler data and to detect patterns on [Kepler EBS](https://archive.stsci.edu/kepler/eclipsing_binaries.html) dataset. *kepler_ebs_sample.csv* file is a sample that the code can process. It creates a folder with the timestamp in the name and moves the images with annotations there. A summary file is also created to check the confidence values. 
