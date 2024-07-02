@@ -43,6 +43,8 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
   
 **9**. Click the "Submit" button to start the process.
 
+**10**. *Optional*: Click the "Send to the training set" button to save the corresponding image and annotations.
+
 ## ##
 ### Detection on Kepler EBS ###
 
