@@ -39,11 +39,11 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 **7**. Enter the confidence threshold, a level for the probability of the presence of the object of interest in detections (*see p.780 in [Redmon et al. 2016](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)*).
 
 
-**8**. Select a detection model (*SSD is faster. For EfficientDet model, extract Eff_detect.zip to the main folder. You may want to run the script on a GPU when using EfficientDet D1. Inference with [Faster R-CNN model](https://github.com/burakulas/detocs/tree/main/frcnn) needs modification in the current version of the code since the zipped file contains saved model folder*).
+**8**. Select a detection model (*SSD is the fastest. For EfficientDet xxxxput folder in filesxxxx and [Faster R-CNN model](https://github.com/burakulas/detocs/tree/main/frcnn) models, You may want to run the script on a GPU.
   
 **9**. Click the "Submit" button to start the process.
 
-**10**. *Optional*: Click the "Send to the training set" button to save the corresponding image and annotations.
+**10**. *Optional*: Click the "Send to the training set" button to save the corresponding image and annotations in [class, x-center, y-center, width, height] format.
 
 ## ##
 ### Detection on Kepler EBS ###
