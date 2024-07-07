@@ -2,3 +2,4 @@ To extract zipped parts:
 
 cat frcnn_* > frcnn_detect.zip
 
+then unzip. 
