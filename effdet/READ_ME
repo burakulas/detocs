@@ -1,0 +1,5 @@
+To extract zipped parts:
+
+cat effdet_* > Eff_detect.zip
+
+then unzip. 
