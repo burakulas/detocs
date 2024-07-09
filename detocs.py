@@ -91,7 +91,7 @@ def detect_objects(image):
     if model_op == "SSD":
       interpreter = tf.lite.Interpreter(model_path="detect.tflite")
     elif model_op == "Eff":
-      interpreter = tf.lite.Interpreter(model_path="Eff_detect.tflite")
+      interpreter = tf.lite.Interpreter(model_path="effdet/eff_detect.tflite")
     interpreter.allocate_tensors()
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
