@@ -46,7 +46,7 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 
 <p align="center">
    <kbd>
-<img src="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" alt="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" class="transparent shrinkToFit" width="429" height="300">
+<img src="https://github.com/burakulas/detocs/blob/main/screen.png" alt="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" data-canonical-src="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png" class="transparent shrinkToFit" width="429" height="300">
    </kbd>
 </p>
 
