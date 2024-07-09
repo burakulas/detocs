@@ -42,10 +42,18 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
   
 **9**. Click the "Submit" button to start the process.
 
-**10**. *Optional*: Click the "Send to the training set" button to save the corresponding image and annotations in [*class, x-center, y-center, width, height*] format.
+**10**. *Optional*: Click the "Send to the training set" button below the resulting image to save the corresponding image and annotations in [*class, x-center, y-center, width, height*] format.
+
+<p align="center">
+   <kbd>
+<img src="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" alt="https://raw.githubusercontent.com/burakulas/detocs/main/screen.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" class="transparent shrinkToFit" width="429" height="300">
+   </kbd>
+</p>
 
 ## ##
 ### Detection on *Kepler* Eclipsing Binaries ###
 
 ***detocs_k.py*** is a modified version of *detocs.py* and it is not a web implementation. It was written to test the known systems with *Kepler* data and to detect patterns on [Kepler EBS](https://archive.stsci.edu/kepler/eclipsing_binaries.html) dataset. The code detects patterns on short cadence data of given systems having a KIC number. [*kepler_ebs_sample.csv*](https://github.com/burakulas/detocs/blob/main/kepler_ebs_sample.csv) is a sample that the code can read. It creates a folder with the timestamp in the name and moves the images with annotations there. A summary file per target is also created to check the confidence values. Run by `python detocs_k.py`
+
+
 
