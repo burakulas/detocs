@@ -23,7 +23,7 @@ A web implementation using the iterative object detection refinement method for 
 
 **6**. - For a single target:
 
-${\space\space\space}$ *a*. Input enter the name of the TESS target (*e.g. TIC48084398*).
+${\space\space\space}$ *a*. Enter the name of the TESS target (*e.g. TIC48084398*).
 
 ${\space\space\space}$   *b*. Enter an orbital period or retrieve it from the [TESS EBS](https://tessebs.villanova.edu) by checking the box.
 
