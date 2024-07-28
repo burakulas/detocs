@@ -84,7 +84,7 @@ def get_observation_ids(target_id):
 
 def detect_objects(image):
     global input_width, input_height
-    with open("labelmap.pbtxt", 'r') as f:
+    with open("assets/labelmap.pbtxt", 'r') as f:
       labels = [line.strip() for line in f.readlines()]
 
     # Load your TensorFlow Lite model
