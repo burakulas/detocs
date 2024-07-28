@@ -276,7 +276,7 @@ def above_conf_detection(target_id, kis, period_input):
 
 
 def period_from_tebs(target_id):
-  dtebs0 = pd.read_csv("tess_ebs_data.csv")
+  dtebs0 = pd.read_csv("assets/tess_ebs_data.csv")
   dtebs = dtebs0[~dtebs0['target'].str.contains('_')]
   if not dtebs.loc[dtebs['target'] == target_id].empty:
     period_input = dtebs.loc[dtebs['target'] == target_id , 'period'].values[0]
