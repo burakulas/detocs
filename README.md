@@ -31,7 +31,7 @@ ${\space\space\space}$   *c*. Enter a period factor value (*hoover over the ques
    
 ${\space\space\space}$ - For multiple targets:
 
-${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see [tess_ebs_sample.csv](https://github.com/burakulas/detocs/blob/main/tess_ebs_sample.csv)*).
+${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see [tess_ebs_sample.csv](https://github.com/burakulas/detocs/blob/main/assets/tess_ebs_sample.csv)*).
 
 
 
