@@ -13,7 +13,9 @@ A web implementation using the iterative object detection refinement method for 
 
 **1**. Clone using `git clone https://github.com/burakulas/detocs.git` 
 
-**2**. Install required packages and libraries with `pip install -r requirements.txt`
+**2**. *a*. Install required packages and libraries with `pip install -r requirements.txt`
+
+${\space\space\space}$   *b*. Unzip model files for EfficientDet D1 and Faster R-CNN by consulting README files in folders [effdet/](https://github.com/burakulas/detocs/tree/main/effdet) and [frcnn/](https://github.com/burakulas/detocs/tree/main/frcnn)
 
 **3**. Run the main script: `python detocs.py`
 
