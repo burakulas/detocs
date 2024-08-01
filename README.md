@@ -52,10 +52,7 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
    </kbd>
 </p>
 
-## ##
-### Detection on *Kepler* Eclipsing Binaries ###
 
-[***detocs_k.py***](https://github.com/burakulas/detocs/blob/main/assets/detocs_k.py) is a modified version of *detocs.py* and it is not a web implementation. It was written to test the known systems with *Kepler* data and to detect patterns on [Kepler EBS](https://archive.stsci.edu/kepler/eclipsing_binaries.html) dataset using the SSD model. The code infers patterns on short cadence data of given systems having a KIC number. [*kepler_ebs_sample.csv*](https://github.com/burakulas/detocs/blob/main/assets/kepler_ebs_sample.csv) is a sample that the code can read as input. It creates a folder with the timestamp in the name and moves the images with annotations there. A summary file per target is also created to check the confidence values. Run by `python detocs_k.py`
 
 
 
