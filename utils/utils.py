@@ -71,7 +71,7 @@ def detect_objects(image,model_op,conf_th):
     with open("assets/labelmap.pbtxt", 'r') as f:
       labels = [line.strip() for line in f.readlines()]
     if model_op == "SSD":
-      interpreter = tf.lite.Interpreter(model_path="models/ssd/detect.tflite")
+      interpreter = tf.lite.Interpreter(model_path="models/ssd/SSD_detect.tflite")
     elif model_op == "Eff":
       interpreter = tf.lite.Interpreter(model_path="models/effdet/Eff_detect.tflite")
     interpreter.allocate_tensors()
