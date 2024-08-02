@@ -1,3 +1,4 @@
-. ssd: Single Shot Multibox Detector
-. frcnn: Faster Region-based CNN
-. effdet: EfficientDet~D1
+. effdet: EfficientDet~D1 (EfficientNet B1 backbone)
+. frcnn: Faster Region-based CNN (ResNet50 V1 backbone)
+. ssd: Single Shot Multibox Detector (MobileNet v2 backbone)
+
