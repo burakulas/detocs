@@ -1,3 +1,0 @@
-. ssd: Single Shot Multibox Detector
-. frcnn: Faster Region-based CNN
-. effdet: EfficientDet~D1
