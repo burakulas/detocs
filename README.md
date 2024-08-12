@@ -46,6 +46,9 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 
 **10**. *Optional*: Click the "Send to the training set" button below the resulting image to save the corresponding image and annotations in [*class, x-center, y-center, width, height*] format.
 
+&nbsp;
+&nbsp;
+
 <p align="center">
    <kbd>
 <img src="https://github.com/burakulas/detocs/blob/main/assets/screen2.png" alt="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen2.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" data-canonical-src="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen2.png" class="transparent shrinkToFit" width="313" height="200">
