@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetOcS</title>
+    <style>
+        #period_input {
+            background-color: white; /* Default background color */
+        }
+
+        #period_input.disabled {
+            background-color: lightgrey; /* Greyed-out background color */
+        }
+    </style>
+
+    <style>
+    .centered-table {
+        border-collapse: separate;
+        border-spacing: 10px; /* Adjust the spacing between columns as needed */
+    }
+
+    .centered-table th,
+    .centered-table td {
+        text-align: center; /* Center-align text */
+    }
+    </style>
+
+    <style>
+            .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+    <style>
+        /* Your existing CSS styles */
+        .button-container {
+            display: flex;
+            align-items: center; /* Align buttons vertically */
+            margin-top: 10px;
+        }
+
+        .button-container button {
+            margin-right: 10px; /* Adjust the space between buttons */
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var additionalInput = document.getElementById("period_input");
+            var radio = document.getElementById("disable_radio");
+            var searchForm = document.getElementById("searchForm");
+            var searchingText = document.getElementById("searchingText");
+            var additionalText = document.getElementById("additionalText");
+
+            radio.addEventListener("click", function() {
+                if (radio.checked) {
+                    additionalInput.disabled = true;
+                    additionalInput.classList.add("disabled");
+                } else {
+                    additionalInput.disabled = false;
+                    additionalInput.classList.remove("disabled");
+                }
+            });
+
+            searchForm.addEventListener("submit", function() {
+                searchingText.style.display = "block"; // Show "Searching..." text
+                additionalText.style.display = "none"; // Hide additional text before search
+            });
+
+            // Function to show additional text after search finishes
+            function showAdditionalText() {
+                searchingText.style.display = "none"; // Hide "Searching..." text
+                additionalText.style.display = "block"; // Show additional text after search finishes
+            }
+        });
+    </script>
+     <script>
+        function handleInput() {
+            var targetInput = document.getElementById("user_input");
+            var fileInput = document.getElementById("fileUpload");
+            var perInput = document.getElementById("period_input");
+            var radInput = document.getElementById("disable_radio");
+            var facInput = document.getElementById("period_factor");
+
+            if (targetInput.value !== "") {
+                fileInput.disabled = true;
+                perInput.disabled = false;
+                radInput.disabled = false;
+                facInput.disabled = false;
+            } else if (fileInput.value !== "") {
+                targetInput.disabled = true;
+                perInput.disabled = true;
+                radInput.disabled = true;
+                facInput.disabled = true;
+            } else {
+                targetInput.disabled = false;
+                fileInput.disabled = false;
+                perInput.disabled = false;
+                radInput.disabled = false;
+                facInput.disabled = false;
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    
+
+
+     <style>
+        /* CSS for the loading indicator */
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            margin-top: 20%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <style>
+    /* Styles for the disabled radio button */
+    input[type="radio"]:disabled + label {
+        color: gray; /* Change the label color to gray */
+        cursor: not-allowed; /* Change the cursor to indicate it's not clickable */
+    }
+    </style>
+
+</head>
+<body>
+    <h1>DetOcS</h1>
+      <!--   <sup style="color:red;">[&#945;]</sup> -->
+    <form id="searchForm" action="/results" method="post" enctype="multipart/form-data" onsubmit="showAdditionalText()">        <!-- Your form elements -->
+        <label for="user_input">Target:</label>
+        <input type="text" id="user_input" name="user_input" oninput="handleInput()">
+        <label for="fileUpload" style="margin-left: 10px;" title="A three column .CSV file with column headers Target ID, Orbital period and Period Factor. See sample_list.csv in the repository.">or Target list <span style="text-decoration: underline; cursor: help;">(?)</span>:</label>
+        <input type="file" id="fileUpload" name="fileUpload" oninput="handleInput()">
+        <br>
+        <br>
+        <label for="period_input">Orbital Period:</label>
+        <input type="text" id="period_input" name="period_input", onchange="validatePeriodInput(),handleInput()">
+        <script>
+        function validatePeriodInput() {
+            var periodInput = document.getElementById("period_input");
+            var periodValue = periodInput.value.trim(); // Remove leading/trailing whitespace
+            // Check if periodValue matches a decimal or integer number pattern
+            var validInputPattern = /^\d+(\.\d+)?$/;
+            if (!validInputPattern.test(periodValue)) {
+                // Clear the input field if value is invalid
+                periodInput.value = "";
+            }
+        }
+        </script>
+        <input type="checkbox" id="disable_radio" name="disable_radio">
+        <label for="disable_radio" title="This option retrieves the period when target is in the TESS EBS catalog.">Period from TESS EBS catalog <span style="text-decoration: underline; cursor: help;">(?)</span></label>
+        <br>
+        <br>
+        <label for="period_factor" title="Interval of the time axis in the orbital period for each image. Eg. If the orbital period of the binary is 1.0 days and the Period factor is entered as 0.7, the length of the time axis will be 0.7 days. Choose wisely that includes one minimum and maximum phases.">Period Factor <span style="text-decoration: underline; cursor: help;">(?)</span>:</label>
+        <input type="text" id="period_factor" name="period_factor", onchange="validatePeriodFact()">
+        <script>
+        function validatePeriodFact() {
+            var periodInput = document.getElementById("period_factor");
+            var periodValue = parseFloat(periodInput.value);
+            if (isNaN(periodValue) || periodValue < 0.0001 || periodValue > 1) {
+                // Clear the input field if value is invalid
+                periodInput.value = "";
+            }
+        }
+        </script>
+
+        <br>
+        <br>
+        <label for="conf_th" title="Confidence threshold for the detection. Values close to 0.5 works.">Confidence threshold <span style="text-decoration: underline; cursor: help;">(?)</span>:</label>
+        <input type="text" id="conf_th" name="conf_th", onchange="validateConf()">
+        <script>
+        function validateConf() {
+            var confInput = document.getElementById("conf_th");
+            var confValue = parseFloat(confInput.value);
+            if (isNaN(confValue) || confValue < 0 || confValue > 1) {
+                // Clear the input field if value is invalid
+                confInput.value = "";
+            }
+        }
+        </script>
+
+
+
+        <br>
+        <br>       
+        <label for="model_input">Detection Model:</label>
+        <br>
+        <input type="radio" id="radio1" name="radio_option" value="SSD">
+        <label for="radio1">SSD</label><br>
+        <input type="radio" id="radio3" name="radio_option" value="frcnn">
+        <label for="radio3">Faster R-CNN</label><br>
+        <input type="radio" id="radio2" name="radio_option" value="Eff">
+        <label for="radio2">EfficientDet D1</label><br>
+        <input type="radio" id="radio4" name="radio_option" value="yolo" disabled>
+        <label for="radio4">YOLO</label><br>
+        <br>
+        <br>
+        <div class="button-container">
+        <!-- Submit button -->
+            <button type="submit" id="searchButton">Submit</button>
+        <!-- New Search button -->
+            <!-- <button onclick="window.location.href = 'http://127.0.0.1:5000'">New Search</button> -->
+            <button id="newSearchButton">New Search</button>
+         </div>
+    </form>
+    <script>
+        // Function to handle click event for New Search button
+        document.getElementById("newSearchButton").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            window.location.href = 'http://127.0.0.1:5000'; // Redirect to the main page
+        });
+
+        // You can add similar event listeners for other buttons if needed
+    </script>
+
+    <p id="searchingText" style="display: none;">Searching-----> Mission: 'TESS', Product type: 'timeseries', Product subgroup: 'LC'</p> <!-- "Searching..." text -->
+    
+
+    <!-- SINGLE TARGET RESULTS ---------from older version-------------------->
+
+ <!--    {% if show_pd == 1 %}
+    <p>  </p>
+    <div style="display: flex;">
+        <div style="flex: 2;">
+            <h3>Input Summary:</h3>
+            <p>Target: {{ user_input }} </p>
+            <p>Orbital Period: {{ period_input }} </p>
+            <p>Period Factor: {{ period_factor }} </p>
+            <p>Confidence Threshold: {{ conf_th }} </p>
+            <p>Detection Model: {{ model_op }} </p>
+           
+        </div>
+        <div style="flex: 1;">
+             <h3>Detection Results:</h3>
+             <img src="data:image/png;base64,{{ image_data }}" alt="Annotated Image" style="border: 2px solid black;">
+        </div>
+
+        <div style="flex: 2; margin-left: 20px;">
+            <table class="centered-table">
+                <thead>
+                    <tr>
+                        {% for col in dfdet3.columns %}
+                            <th>{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <br>
+                    <br>
+                    {% for index, row in dfdet3.iterrows() %}
+                        <tr>
+                            {% for value in row %}
+                                <td {% if 'P' in row['Class'] %}class="red"{% elif 'M' in row['Class'] %}class="blue"{% endif %}> {{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Send to the training set</button>
+        </div>
+    </div>
+
+    {% endif %} -->
+
+
+
+
+    <!-- MULTIPLE TARGET but single RESULTS--and--SINGLE TARGET BUT MULTIPLE IMAGE RESULTS-------------------------------------->
+
+    {% for result in result_data %}
+    
+    {% if result.period_input == 404 %}
+
+
+     <h4 style="color:red;"> Target is not in TESS EBS. Press 'New Search' button and resubmit with an orbital period value! </h4>
+
+
+    {% else %}
+    {% if result.show_pd == 2 %}
+    
+
+
+    <!-- IF NO DETECTIONS----------------------- -->
+    {% if result.dfdet3_em and detec == 404 %}
+
+             <div style="display: flex;">
+                <div style="flex: 2;">
+                    <h3>Input Summary:</h3>
+                    <p>Target: {{ result.user_input }} </p>
+                    <p>Orbital Period: {{ '%.6f' | format(result.period_input) }} </p>
+                    <p>Period Factor: {{ result.period_factor }} </p>
+                    <p>Confidence Threshold: {{ result.conf_th }} </p>
+                    <p>Detection Model: {{ result.model_op }} </p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>    
+                </div>
+                <div style="flex: 1;">
+                    <h3>Detection Results:</h3>
+                    <img src="data:image/png;base64,{{ result.image_data }}" alt="Annotated Image" style="border: 2px solid black;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>  
+                </div>
+                <div style="flex: 2; margin-left: 20px;">
+                    <h1> NO 2-CLASS DETECTIONS. </h1>
+                </div>
+            </div>
+
+
+
+    <!-- IF DETECTIONS OCCUR----------------------- -->
+
+    {% else %}
+
+            <div style="display: flex;">
+                <div style="flex: 2;">
+
+                    <h3>Input Summary:</h3>
+                    <p>Target: {{ result.user_input }} </p>
+                    <p>Orbital Period: {{ '%.6f' | format(result.period_input) }} </p>
+                    <p>Period Factor: {{ result.period_factor }} </p>
+                    <p>Confidence Threshold: {{ result.conf_th }} </p>
+                    <p>Detection Model: {{ result.model_op }} </p>
+                    <p>LC no: {{ result.say}} </p>
+                   <!--  <p>SIMBAD OT:  </p> -->
+                    <br>
+                    <br>
+                    <br>
+                    <br>  
+                </div>
+                <div style="flex: 1;">
+                    <h3>Detection Results:</h3>
+                    <img src="data:image/png;base64,{{ result.image_data }}" alt="Annotated Image" style="border: 2px solid black;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>  
+                </div>
+                <div style="flex: 2; margin-left: 20px;">
+                    <table class="centered-table">
+                        <thead>
+                            <tr>
+                                {% for col in result.dfdet3.columns %}
+                                    <th>{{ col }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <br>
+                            <br>
+                            {% for index, row in result.dfdet3.iterrows() %}
+                                <tr>
+                                    {% for value in row %}
+                                        <td {% if 'P' in row['Class'] %}class="red"{% elif 'M' in row['Class'] %}class="blue"{% endif %}> {{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button class="exportButton" data-detco="{{ result.detec }}" data-fpname="{{ result.fpname }}" detec-json="{{ result.detecString_json }}" onclick="downloadFile(event)">Send to the training set</button>
+
+                    <script>
+                        // Function to handle click event for export buttons
+                        function decodeHtmlEntities(encodedString) {
+                            var textarea = document.createElement("textarea");
+                            textarea.innerHTML = encodedString;
+                            return textarea.value;
+                        }
+
+
+
+                        function downloadFile() {
+                            var button = event.target;
+                            console.log("Button clicked"); // Check if the button click event is registered
+   
+                            try {
+                                // var detco = JSON.parse(detcoString_json); // Parse detco list
+                                var fpname = button.getAttribute("data-fpname"); // Get fpname value
+                                var jsondat = button.getAttribute("detec-json")
+                                var detco = JSON.parse(jsondat);
+                                var fnm0 = fpname.substring(0, fpname.lastIndexOf('.')); 
+                                var fnm = "ext_" + fnm0 + ".txt";
+                                var imnm = "ext_" + fpname;                          
+                               /* console.log("===fpname:", fpname);
+                                console.log("===detco:", detco);
+                                console.log("===detco bbx", detco.res[0].bbox[0]);
+                                console.log("===detco.res.length",detco.res.length);
+                                console.log("wid", {{ result.wid }});*/
+                                var lines = ''; 
+                                for (var i = 0; i < detco.res.length; i++) {
+                                    var bbox = detco.res[i].bbox;
+                                    var cls = detco.res[i].class_id;
+                                    var xmin = detco.res[i].bbox[0]*(240/{{ result.wid }});
+                                    var ymin = detco.res[i].bbox[1]*(240/{{ result.hei }});
+                                    var xmax = detco.res[i].bbox[2]*(240/{{ result.wid }});
+                                    var ymax = detco.res[i].bbox[3]*(240/{{ result.hei }});
+                                    var xc = ((xmin + xmax) / 2.0) / 240;
+                                    var yc = ((ymin + ymax) / 2.0) / 240;
+                                    var wd = (xmax - xmin) / 240;
+                                    var ht = (ymax - ymin) / 240;
+                                    // Create line
+                                    var line = `${cls} ${xc} ${yc} ${wd} ${ht}`;
+                                    
+                                    lines += line + '\n';
+                                }
+
+                                // Send the HTTP request to download the text file
+                                var textXhr = new XMLHttpRequest();
+                                textXhr.open('POST', '/downl', true);
+                                textXhr.setRequestHeader('Content-Type', 'application/json');
+                                textXhr.responseType = 'blob';
+                                textXhr.onload = function() {
+                                    if (this.status === 200) {
+                                        // Extract the filename from the Content-Disposition header
+                                        var disposition = textXhr.getResponseHeader('Content-Disposition');
+                                        var filename = fnm; // Default to the original filename
+
+                                        if (disposition && disposition.indexOf('attachment') !== -1) {
+                                            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                                            var matches = filenameRegex.exec(disposition);
+                                            if (matches != null && matches[1]) { 
+                                                filename = matches[1].replace(/['"]/g, '');
+                                            }
+                                        }
+
+                                        // Create a blob URL from the response
+                                        var blob = new Blob([this.response], { type: 'text/plain' });
+                                        var blobUrl = window.URL.createObjectURL(blob);
+
+                                        // Create a temporary link to trigger the download
+                                        var downloadLink = document.createElement('a');
+                                        downloadLink.href = blobUrl;
+                                        downloadLink.download = filename; // Use the extracted filename
+                                        document.body.appendChild(downloadLink);
+                                        downloadLink.click();
+                                        document.body.removeChild(downloadLink);
+
+                                        // Clean up the blob URL
+                                        window.URL.revokeObjectURL(blobUrl);
+                                    }
+                                };
+                                textXhr.send(JSON.stringify({ fnm: fnm, lines: lines, fpname: fpname, imnm: imnm }));
+
+                                // After initiating the download of the text file, initiate the download of the image file
+                                var imageDownloadLink = document.createElement('a');
+                                imageDownloadLink.href = '/download_image?imnm=' + encodeURIComponent(imnm);
+                                imageDownloadLink.download = imnm; // Set the image file name
+                                document.body.appendChild(imageDownloadLink);
+                                imageDownloadLink.click();
+                                document.body.removeChild(imageDownloadLink);
+
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        }
+                    </script>    
+ 
+                </div>
+            </div>
+
+    {% endif %}  
+    {% endif %}        
+    {% endif %}
+    {% endfor %}
+
+<div class="loader" id="loader"></div>
+
+<script>
+    // Function to hide the loading indicator
+    function hideLoader() {
+        document.getElementById('loader').style.display = 'none';
+    }
+
+    // Function to show the loading indicator
+    function showLoader() {
+        document.getElementById('loader').style.display = 'block';
+    }
+
+    // Function to fetch data from the server
+    function fetchData() {
+        // Show loading indicator before making the request
+        showLoader();
+
+        fetch('/data')
+        .then(response => response.text())
+        .then(data => {
+            // Hide loading indicator after receiving the response
+            hideLoader();
+
+            // Handle the received data
+            // For example, update the HTML content with the data
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Hide loading indicator if an error occurs
+            hideLoader();
+        });
+    }
+
+    // Call fetchData when the page loads
+    window.onload = fetchData;
+</script>
+
+</body>
+</html>
