@@ -50,7 +50,8 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
    <kbd>
 <img src="https://github.com/burakulas/detocs/blob/main/assets/screen2.png" alt="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen2.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" data-canonical-src="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen2.png" class="transparent shrinkToFit" width="313" height="200">
    </kbd>
-    <kbd>
+&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <kbd>
 <img src="https://github.com/burakulas/detocs/blob/main/assets/screen3.png" alt="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen3.png?token=GHSAT0AAAAAACS2WTMNVMZDAGOTALFCLRB6ZUNCS5A" data-canonical-src="https://raw.githubusercontent.com/burakulas/detocs/main/assets/screen3.png" class="transparent shrinkToFit" width="313" height="200">
    </kbd>
 </p>
