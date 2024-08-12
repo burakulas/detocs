@@ -1,6 +1,17 @@
 
-Download the zipped file from:
+1. Install gdown (if not already installed):
 
-https://drive.google.com/file/d/1pX07F2NO-sW8sSao4E6Q9nVj2C-owmnP/view?usp=sharing
+> pip install gdown
 
-then unzip. 
+
+2. Download the file in the current folder:
+
+> gdown 'https://drive.google.com/uc?id=1pX07F2NO-sW8sSao4E6Q9nVj2C-owmnP'
+
+
+3. Unzip downloaded file. It creates a folder named "saved_folder" used for detection.
+
+
+4. Optionally remove the zipped file to save space.
+
+
