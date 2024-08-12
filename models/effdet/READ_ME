@@ -1,5 +1,8 @@
-To extract zipped parts:
+1. Install gdown (if not already installed):
 
-cat eff_* > eff_detect.zip
+> pip install gdown
 
-then unzip. 
+
+2. Download the model file (Eff_detect.tflite) in the current folder:
+
+> gdown 'https://drive.google.com/uc?id=1LWTcpAOCthSdolWKfM0KgpMrluvdbToO'
