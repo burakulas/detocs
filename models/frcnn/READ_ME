@@ -4,7 +4,7 @@
 > pip install gdown
 
 
-2. Download the file in the current folder:
+2. Download the file to the current folder:
 
 > gdown 'https://drive.google.com/uc?id=1pX07F2NO-sW8sSao4E6Q9nVj2C-owmnP'
 
