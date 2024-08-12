@@ -3,6 +3,6 @@
 > pip install gdown
 
 
-2. Download the model file (Eff_detect.tflite) in the current folder:
+2. Use the following command to download the model file (Eff_detect.tflite) to the current folder:
 
 > gdown 'https://drive.google.com/uc?id=1LWTcpAOCthSdolWKfM0KgpMrluvdbToO'
