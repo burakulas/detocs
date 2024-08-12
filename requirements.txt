@@ -7,4 +7,4 @@ pandas==2.2.2
 Pillow==10.3.0
 requests==2.32.3
 tensorflow==2.16.1
-
+tensorflow_object_detection_api==0.1.1
