@@ -37,7 +37,7 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 
 
 
-**7**. Enter the confidence threshold, a level for the probability of the presence of the object of interest in detections (*see p.780 in [Redmon et al. 2016](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf), 0.5 is adequate for our task*).
+**7**. Enter the confidence threshold, a level for the probability of the presence of the object of interest in detections (*see p.780 in [Redmon et al. 2016](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf), 0.5 is adequate for the task*).
 
 
 **8**. Select a detection model (*SSD is the fastest. For Faster R-CNN and EfficientDet D1 model you may want to run the script on a GPU. YOLO modification is coming soon!*)
