@@ -59,7 +59,28 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
    </kbd>
 </p>
 
+### Citing ###
 
+If you use Kats in your work or research, please use the following BibTeX entry.
+
+```bibtex
+@ARTICLE{2025arXiv250117538U,
+       author = {{Ula{\c{s}}}, Burak and {Szklen{\'a}r}, Tam{\'a}s and {Szab{\'o}}, R{\'o}bert},
+        title = "{Detection of Oscillation-like Patterns in Eclipsing Binary Light Curves using Neural Network-based Object Detection Algorithms}",
+      journal = {arXiv e-prints},
+     keywords = {Astrophysics - Solar and Stellar Astrophysics},
+         year = 2025,
+        month = jan,
+          eid = {arXiv:2501.17538},
+        pages = {arXiv:2501.17538},
+          doi = {10.48550/arXiv.2501.17538},
+archivePrefix = {arXiv},
+       eprint = {2501.17538},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250117538U},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
 
 
 
