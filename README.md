@@ -67,18 +67,11 @@ If you use DetOcS in your work or research, please use the following BibTeX entr
 @ARTICLE{2025arXiv250117538U,
        author = {{Ula{\c{s}}}, Burak and {Szklen{\'a}r}, Tam{\'a}s and {Szab{\'o}}, R{\'o}bert},
         title = "{Detection of Oscillation-like Patterns in Eclipsing Binary Light Curves using Neural Network-based Object Detection Algorithms}",
-      journal = {arXiv e-prints},
-     keywords = {Astrophysics - Solar and Stellar Astrophysics},
          year = 2025,
         month = jan,
+          doi = {https://doi.org/10.1051/0004-6361/202452020},
           eid = {arXiv:2501.17538},
-        pages = {arXiv:2501.17538},
-          doi = {10.48550/arXiv.2501.17538},
-archivePrefix = {arXiv},
-       eprint = {2501.17538},
- primaryClass = {astro-ph.SR},
        adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250117538U},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 ```
 
