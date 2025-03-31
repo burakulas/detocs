@@ -61,7 +61,7 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 
 ### Citing ###
 
-If you use DetOcS in your work or research, please use the following BibTeX entry.
+If you use DetOcS in your work or research, please cite using the following BibTeX entry.
 
 ```bibtex
 @ARTICLE{2025A&A...695A..81U,
