@@ -64,14 +64,22 @@ ${\space\space\space}$   *a*. Click the "Browse" button and choose a file (*see 
 If you use DetOcS in your work or research, please use the following BibTeX entry.
 
 ```bibtex
-@ARTICLE{2025arXiv250117538U,
-       author = {{Ula{\c{s}}}, Burak and {Szklen{\'a}r}, Tam{\'a}s and {Szab{\'o}}, R{\'o}bert},
-        title = "{Detection of Oscillation-like Patterns in Eclipsing Binary Light Curves using Neural Network-based Object Detection Algorithms}",
+@ARTICLE{2025A&A...695A..81U,
+       author = {{Ula{\c{s}}}, B. and {Szklen{\'a}r}, T. and {Szab{\'o}}, R.},
+        title = "{Detection of oscillation-like patterns in eclipsing binary light curves using neural network-based object detection algorithms}",
+      journal = {\aap},
+     keywords = {methods: data analysis, techniques: image processing, binaries: eclipsing, stars: oscillations, Astrophysics - Solar and Stellar Astrophysics},
          year = 2025,
-        month = jan,
-          doi = {https://doi.org/10.1051/0004-6361/202452020},
-          eid = {arXiv:2501.17538},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250117538U},
+        month = mar,
+       volume = {695},
+          eid = {A81},
+        pages = {A81},
+          doi = {10.1051/0004-6361/202452020},
+archivePrefix = {arXiv},
+       eprint = {2501.17538},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025A&A...695A..81U},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 ```
 
