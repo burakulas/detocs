@@ -1,9 +1,9 @@
 # DetOcS #
 
-<!--- **Det**ection of **O**s**c**illations in Eclipsing Binary Light Curve**S** !--->
+**Det**ection of **O**s**c**illations in Eclipsing Binary Light Curve**S**
 
 
-### ${\color\{black}\large\textsf{Det}\color{#696969}\large\textsf{ection of}\space \color{black}\large\textsf{O}\color{#696969}\large\textsf{s}\color{black}\large\textsf{c}\color{#696969}\large\textsf{illations in Eclipsing Binary Light Curve}\color{black}\large\textsf{S}}$ ###
+<!--- ### ${\color\{black}\large\textsf{Det}\color{#696969}\large\textsf{ection of}\space \color{black}\large\textsf{O}\color{#696969}\large\textsf{s}\color{black}\large\textsf{c}\color{#696969}\large\textsf{illations in Eclipsing Binary Light Curve}\color{black}\large\textsf{S}}$ ### !--->
 
 A web implementation for (i) detecting oscillation patterns in eclipsing binary light curves and (ii) collecting new data for the training dataset with easy and fast confirmation using the iterative object detection refinement method.
 
